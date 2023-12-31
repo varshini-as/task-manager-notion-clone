@@ -4,6 +4,7 @@ import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 
 import { cn } from "@/lib/utils";
+import UserItem from "./user-item";
 
 const Navigation = () => {
   // to manually define mobile and desktop devices
@@ -123,7 +124,7 @@ const Navigation = () => {
         >
           <ChevronLeft className="h-6 w-6" />
         </div>
-        <div>action items</div>
+        <div><UserItem /></div>
         <div className="mt-4">documents</div>
 
         {/* Draggable resizer */}
