@@ -5,6 +5,8 @@ import { useMediaQuery } from "usehooks-ts";
 
 import { cn } from "@/lib/utils";
 import UserItem from "./user-item";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 
 const Navigation = () => {
   // to manually define mobile and desktop devices
@@ -12,6 +14,8 @@ const Navigation = () => {
 
   // manually collapse sidebar when different item is clicked
   const pathname = usePathname();
+
+  const documents = useQuery(api.documents.get);
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -125,7 +129,11 @@ const Navigation = () => {
           <ChevronLeft className="h-6 w-6" />
         </div>
         <div><UserItem /></div>
-        <div className="mt-4">documents</div>
+        <div className="mt-4 text-sm">
+          {
+            documents?.map((document) => {return <p key={document._id}>{document.title}</p>})
+          }
+        </div>
 
         {/* Draggable resizer */}
         <div
