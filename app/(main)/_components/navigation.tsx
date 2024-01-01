@@ -9,6 +9,7 @@ import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import Item from "./item";
 import { toast } from "sonner";
+import DocumentsList from "./document-list";
 
 const Navigation = () => {
   // to manually define mobile and desktop devices
@@ -17,7 +18,6 @@ const Navigation = () => {
   // manually collapse sidebar when different item is clicked
   const pathname = usePathname();
 
-  const documents = useQuery(api.documents.get);
   const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -148,9 +148,7 @@ const Navigation = () => {
         <Item label="Settings" icon={Settings} onClick={() => {}}/>
         <Item label="New Page" onClick={handleCreate} icon={PlusCircle}/></div>
         <div className="mt-4 text-sm font-medium">
-          {
-            documents?.map((document) => {return <p key={document._id}>{document.title}</p>})
-          }
+            <DocumentsList />
         </div>
 
         {/* Draggable resizer */}
