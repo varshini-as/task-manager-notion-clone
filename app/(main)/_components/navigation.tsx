@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import DocumentsList from "./document-list";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import TrashBox from "./trash-box";
+import { useSearch } from "@/hooks/use-search";
 
 const Navigation = () => {
   // to manually define mobile and desktop devices
@@ -19,6 +20,8 @@ const Navigation = () => {
 
   // manually collapse sidebar when different item is clicked
   const pathname = usePathname();
+
+  const search = useSearch();
 
   const create = useMutation(api.documents.create);
 
@@ -146,7 +149,7 @@ const Navigation = () => {
           <ChevronLeft className="h-6 w-6" />
         </div>
         <div><UserItem />
-        <Item label="Search" icon={Search} isSearch onClick={() => {}}/>
+        <Item label="Search" icon={Search} isSearch onClick={() => {search.onOpen()}}/>
         <Item label="Settings" icon={Settings} onClick={() => {}}/>
         <Item label="New Page" onClick={handleCreate} icon={PlusCircle}/></div>
         <div className="mt-4 text-sm font-medium">
