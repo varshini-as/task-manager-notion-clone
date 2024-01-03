@@ -77,7 +77,7 @@ const Item = ({
 
           onExpand && onExpand();
 
-          //   router.push(`/documents/${id}`)
+          router.push(`/documents/${id}`);
         }
       }
     );
@@ -94,14 +94,13 @@ const Item = ({
 
     if (!id) return;
 
-    const promise = archive({id});
+    const promise = archive({ id });
 
     toast.promise(promise, {
-        loading: "Moving to trash...",
-        success: "Note moved to trash!",
-        error: "Failed to archive note.",
-      });
-
+      loading: "Moving to trash...",
+      success: "Note moved to trash!",
+      error: "Failed to archive note.",
+    });
   };
 
   return (

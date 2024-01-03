@@ -1,5 +1,5 @@
 import { ChevronLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 
@@ -14,6 +14,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import TrashBox from "./trash-box";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
+import Navbar from "./navbar";
 
 const Navigation = () => {
   // to manually define mobile and desktop devices
@@ -24,8 +25,9 @@ const Navigation = () => {
 
   const search = useSearch();
   const settings = useSettings();
-
+  const params = useParams();
   const create = useMutation(api.documents.create);
+
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -184,11 +186,11 @@ const Navigation = () => {
           isMobile && "left-0 w-full"
         )}
       >
-        <nav className="bg-transparent px-3 py-2 w-full">
+        {!!params.documentId ? (<Navbar isCollapsed={isCollapsed} onResetWidth={resetWidth}/>): <nav className="bg-transparent px-3 py-2 w-full">
           {isCollapsed && (
             <MenuIcon role="button" onClick={resetWidth} className="h-6 w-6 text-muted-foreground" />
           )}
-        </nav>
+        </nav>}
       </div>
     </>
   );
