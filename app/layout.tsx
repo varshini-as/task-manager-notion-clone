@@ -43,9 +43,10 @@ export default function RootLayout({
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-            storageKey="dochub-theme">
-              <Toaster position="top-center"/>
-              <ModalProvider />
+            storageKey="dochub-theme"
+          >
+            <Toaster position="top-center" />
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
