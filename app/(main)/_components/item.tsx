@@ -155,7 +155,7 @@ const Item = ({
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <div className="text-sm p-2 text-muted-foreground">
-                Last edited by: {user?.username}
+                Last edited by: {user?.fullName ?? user?.username}
               </div>
             </DropdownMenuContent>
           </DropdownMenu>

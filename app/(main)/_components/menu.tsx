@@ -50,7 +50,7 @@ const Menu = ({ documentId }: MenuProps) => {
         forceMount
       >
         <DropdownMenuItem onClick={onArchive}><Trash className="h-4 w-4 mr-2"/>Delete</DropdownMenuItem>
-        <div className="text-xs p-2 text-muted-foreground">Last edited by: {user?.username}</div>
+        <div className="text-xs p-2 text-muted-foreground">Last edited by: {user?.fullName ?? user?.username}</div>
       </DropdownMenuContent>
     </DropdownMenu>
   );

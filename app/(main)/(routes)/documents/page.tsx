@@ -44,7 +44,7 @@ const DocumentsPage = () => {
         className="hidden dark:block"
       />
       <h2 className="font-semibold">
-        Welcome to {user?.username}&apos;s DocFlow
+        Welcome to {user?.fullName ?? user?.username}&apos;s DocFlow
       </h2>
       <Button onClick={onCreate}>
         <PlusCircle className="h-4 w-4 mr-2" />
