@@ -4,7 +4,7 @@ import { useMutation, useQuery } from "convex/react";
 import { useParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import { Id } from "@/convex/_generated/dataModel";
+import { Doc, Id } from "@/convex/_generated/dataModel";
 import { api } from "@/convex/_generated/api";
 
 import { Spinner } from "@/components/spinner";
@@ -21,7 +21,7 @@ const TrashBox = () => {
 
   const [search, setSearch] = useState("");
 
-  const filteredDocuments = documents?.filter((document) =>
+  const filteredDocuments = documents?.filter((document: Doc<"documents">) =>
     document.title.includes(search.toLowerCase())
   );
 
