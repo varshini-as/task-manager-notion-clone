@@ -13,6 +13,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { MoreHorizontal, Trash } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 type MenuProps = {
@@ -20,6 +21,8 @@ type MenuProps = {
 };
 const Menu = ({ documentId }: MenuProps) => {
   const {user} = useUser();
+  const router = useRouter();
+
   const archive = useMutation(api.documents.archive);
 
   const onArchive = () => {
@@ -30,6 +33,8 @@ const Menu = ({ documentId }: MenuProps) => {
       success: "Moved to trash!",
       error: "Failed to marchive note.",
     });
+
+    router.push("/documents");
   };
   return (
     <DropdownMenu>
