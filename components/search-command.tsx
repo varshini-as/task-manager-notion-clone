@@ -61,7 +61,7 @@ export const SearchCommand = () => {
             <CommandItem
               key={document._id}
               title={document.title}
-              value={`${document._id}-${document.title}`}
+              value={`${document._id}`}
               onSelect={onSelect}
             >
                 {document?.icon ? (<p className="mr-2 text-[18px] cursor-pointer">{document.icon}</p>): (<File className="mr-2 h-4 w-4" />)}
