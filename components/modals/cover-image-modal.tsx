@@ -22,7 +22,14 @@ const CoverImageModal = () => {
       setIsSubmitting(true);
       setFile(file);
 
-      const res = await edgestore.publicFiles.upload({ file });
+      // replace existing cover image url in edge store instead of creating a new entry
+      const res = await edgestore.publicFiles.upload({
+        file,
+        options: {
+          replaceTargetUrl: coverImage.url,
+        },
+      });
+
       await update({
         id: params.documentId as Id<"documents">,
         coverImage: res.url,
