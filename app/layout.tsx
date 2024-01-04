@@ -11,14 +11,14 @@ import { EdgeStoreProvider } from "@/lib/edgestore";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CollabaroNote",
+  title: "DocFlow",
   description:
-    "Collaboration meets note-taking in CollaboraNote. Foster teamwork, share insights, and stay organized.",
+    "Collaboration meets note-taking in DocFlow. Foster teamwork, share insights, and stay organized.",
   icons: {
     icon: [
       {
         media: "(prefers-color-scheme: light)",
-        url: "/logo-dark.svg",
+        url: "/logo-dark.png",
         href: "/logo-dark.svg",
       },
       {

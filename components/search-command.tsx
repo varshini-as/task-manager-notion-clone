@@ -13,7 +13,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "./ui/command";
+} from "@/components/ui/command";
 import { File } from "lucide-react";
 
 export const SearchCommand = () => {
